@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Simple Header */
+.header {
+    background: #000000; /* Black background */
+    color: #ff79b4; /* Pink text */
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-family: 'Permanent Marker', cursive, Helvetica;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #ff79b4; /* Ensure title is pink */
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    color: #ff79b4; /* Ensure subtitle is pink */
+}
+
+/* Navigation */
+.breadcrumb {
+    padding: 1rem 2rem;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#back-btn {
+    background: #ff79b4;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#back-btn:hover {
+    background: #e65a9b;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Lists */
+.item-list {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.item {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.item:hover {
+    background-color: #f8f9fa;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.item-year {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.item-details {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+/* Loading */
+#loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4ac5c5;
+    padding: 2rem;
+}
+
+/* Error State */
+.error {
+    text-align: center;
+    color: #ff4757;
+    padding: 2rem;
+}
+
+.empty {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Detail Card */
+.detail-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.detail-card h1 {
+    color: #ff79b4;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.detail-card p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Navigation buttons */
+.nav-btn {
+    background: #4ac5c5;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.nav-btn:hover {
+    background: #3ba8a8;
+}
+
+/* Section headers */
+h2 {
+    color: #333;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.5rem;
+}

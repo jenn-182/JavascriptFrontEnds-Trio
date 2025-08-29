@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink-182 Music Explorer - Basic Version</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/bunny1.png">
+</head>
+<body>
+    <!-- Simple Header -->
+    <header class="header">
+        <h1 class="title">Blink-182 Lore</h1>
+        <p class="subtitle">Basic Vanilla JavaScript Version</p>
+    </header>
+
+    <!-- Navigation Breadcrumbs -->
+    <nav class="breadcrumb">
+        <span id="breadcrumb-text">Bands</span>
+        <button id="back-btn" onclick="goBack()" style="display: none;">← Back</button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <div id="loading" style="display: none;">Loading...</div>
+        <div id="content">
+        </div>
+    </main>
+
+    <!--  API -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

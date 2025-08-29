@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink-182 Lore - Vue Detail View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/bunny1.png">
+</head>
+<body>
+    <div id="app">
+        <nav class="nav-bar">
+            <button @click="goBack" class="nav-btn">← Back</button>
+            <button @click="goHome" class="nav-btn">Home</button>
+        </nav>
+
+        <div id="detail-container">
+            <div v-if="loading" id="loading">Loading...</div>
+            <div v-else id="detail-content">
+                <!-- Band Detail -->
+                <div v-if="detailType === 'band'">
+                    <h1>{{ item.name }}</h1>
+                    <p><strong>Started:</strong> {{ item.startYear }}</p>
+                    <p><strong>Members:</strong> {{ item.members }}</p>
+                    <p>{{ item.description }}</p>
+                </div>
+
+                <!-- Album Detail -->
+                <div v-if="detailType === 'album'">
+                    <h1>{{ item.title }}</h1>
+                    <p><strong>Released:</strong> {{ item.releaseYear }}</p>
+                    <p><strong>Band:</strong> {{ item.band }}</p>
+                    <div v-if="songs.length">
+                        <h3>Songs:</h3>
+                        <ul>
+                            <li v-for="song in songs" :key="song.id">
+                                {{ song.trackNumber }}. {{ song.title }} ({{ song.durationInSeconds }}s)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Song Detail -->
+                <div v-if="detailType === 'song'">
+                    <h1>{{ item.title }}</h1>
+                    <p><strong>Track:</strong> {{ item.trackNumber }}</p>
+                    <p><strong>Duration:</strong> {{ item.durationInSeconds }} seconds</p>
+                    <p><strong>Album:</strong> {{ item.album }}</p>
+                    <p><strong>Band:</strong> {{ item.band }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+</html>

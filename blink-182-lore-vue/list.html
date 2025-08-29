@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink-182 Lore - Vue List View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/bunny1.png">
+</head>
+<body>
+    <div id="app">
+        <nav class="nav-bar">
+            <button @click="goBack" class="nav-btn">← Back</button>
+            <button @click="goHome" class="nav-btn">Home</button>
+        </nav>
+
+        <header id="list-header">
+            <h1 id="list-title">{{ pageTitle }}</h1>
+        </header>
+
+        <div id="list-container">
+            <div v-if="loading" id="loading">Loading...</div>
+            <ul v-else id="items-list">
+                <li v-for="item in items" :key="item.id" @click="handleItemClick(item)">
+                    <strong>{{ item.name || item.title }}</strong>
+                    <span v-if="item.startYear">({{ item.startYear }})</span>
+                    <span v-if="item.releaseYear">({{ item.releaseYear }})</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/list.js"></script>
+</body>
+</html>

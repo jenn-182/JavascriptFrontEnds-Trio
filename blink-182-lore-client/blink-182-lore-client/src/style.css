@@ -1,0 +1,962 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* Base Styles */
+body {
+  font-family: 'Impact', sans-serif;
+  margin: 2em;
+  background-color: #333333; /* Dark Gray background */
+  color: #eeeeee; /* Light text color for main body */
+  line-height: 1.6;
+}
+
+/* Headers */
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  color: #FF79B4; /* New hot pink */
+  text-align: center;
+  font-size: 4em;
+  text-shadow: 2px 2px 5px #000000;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-family: 'Impact', sans-serif;
+  border-bottom: 2px solid #FF79B4; /* New hot pink border */
+  padding-bottom: 0.75em;
+  color: #111111; /* Dark text for contrast against light sections */
+  margin-top: 0;
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.4em;
+  color: #4AC5C5; /* New turquoise */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Center and enlarge subtitle under the main title */
+.subtitle {
+  text-align: center;
+  font-size: 1.4em;
+  margin-top: -1em;
+  margin-bottom: 2em;
+  color: #eeeeee;
+  font-family: 'Impact', sans-serif;
+}
+
+/* Main Content Sections */
+section {
+  margin-bottom: 3em;
+  padding: 2em;
+  background-color: #F9EDE5; /* New light beige background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid #FF79B4; /* New hot pink border */
+}
+
+/* Form Elements */
+input {
+  display: block;
+  width: calc(100% - 2em);
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+  border: 1px solid #FF79B4; /* New hot pink border */
+  font-size: 1.1em;
+  background-color: #F9EDE5; /* New light beige background */
+  color: #111111; /* Dark text for contrast */
+}
+
+button {
+  display: block;
+  width: auto;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  font-size: 1.1em;
+  background-color: #FF79B4; /* New hot pink button background */
+  color: #FFFFFF; /* White text for contrast */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d60062; /* A slightly darker pink for hover */
+}
+
+/* Lists and Items */
+#band-section ul, #playlist-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+#bands-list li, #albums-list li, #songs-list li, #user-playlist li {
+  padding: 1em;
+  border-bottom: 1px dashed #666666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 1.1em; /* Lower font size for list items */
+}
+
+#bands-list li:last-child, #albums-list li:last-child, #songs-list li:last-child, #user-playlist li:last-child {
+  border-bottom: none;
+}
+
+#songs-list li {
+  display: flex;
+  align-items: center;
+  gap: 2em; /* Space between items */
+}
+
+/* Band, Album, Song names in exploration sections: dark gray */
+.band-name, .album-title, .song-title {
+  color: #555555; /* Dark gray for the titles */
+  font-size: 1em;
+}
+
+#songs-list .song-title {
+  color: #555555 !important;
+}
+
+.song-title {
+  flex: 2;
+  color: #555555;
+  font-size: 1em;
+}
+
+/* Year and track number: turquoise */
+.year, .track-number, .duration {
+  color: #4AC5C5;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+/* Track number and duration alignment */
+.track-number, .duration {
+  flex: 1;
+}
+
+/* Make clickable spans turquoise and underlined */
+/* NOTE: Removed #songs-list span from this selector to make song titles non-clickable */
+#bands-list span, #albums-list span {
+  cursor: pointer;
+  color: #4AC5C5;
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+
+#bands-list strong {
+  color: #FF79B4; /* New hot pink for bolded text */
+}
+
+/* Styles for mixtape playlist items */
+#user-playlist .song-info {
+  display: flex;
+  align-items: center;
+  gap: 1em; /* Creates even spacing between the song, album, and band names */
+}
+
+#user-playlist li {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+#user-playlist li:first-child {
+  font-weight: bold;
+  background: #222;
+  color: #FF79B4;
+}
+
+#user-playlist .song-title {
+  color: #555555; /* Dark gray for song titles */
+}
+
+#user-playlist .album-title {
+  color: #4AC5C5; /* Turquoise for album names */
+}
+
+#user-playlist .band-name {
+  color: #FF79B4; /* Hot pink for band names */
+}
+
+/* Playlist Buttons */
+#user-playlist li button {
+  background-color: #4AC5C5; /* New turquoise for button */
+  color: #111111; /* Dark text for contrast */
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+}
+
+#user-playlist li button:hover {
+  background-color: #36c7ba;
+}
+
+.add-btn {
+  background-color: #FF79B4; /* New hot pink for add button */
+  color: white;
+  margin-left: 10px;
+  font-size: 0.9em;
+  padding: 0.5em 1em;
+  flex: 1;
+}
+
+.add-btn:hover {
+  background-color: #d60062;
+}
+
+/* Status Message */
+#playlist-status {
+  text-align: center;
+  color: #999999;
+  font-style: italic;
+  padding: 1em;
+  font-size: 1.2em;
+}
+
+/* Styles for "Your Music" section */
+#your-music-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+#your-music-list .button-group {
+    display: flex;
+    gap: 0.5em;
+}
+
+#your-music-list .add-to-mixtape-btn {
+    background-color: #4AC5C5;
+    color: #111111;
+}
+
+#your-music-list .remove-btn {
+    background-color: #FF79B4;
+    color: white;
+}
+
+/* New CSS class for clickable mixtape elements */
+.clickable {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.member-name {
+  color: #FF79B4;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.5em; /* Increased font size */
+  display: block;
+  margin-bottom: 0.5em;
+}
+#member-bands-list .band-name {
+  color: #555555;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.explore-option {
+  color: #4AC5C5;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5em; /* Larger font for options */
+  text-decoration: underline;
+  margin: 0;
+  padding: 0 0.5em;
+}
+.explore-option:hover {
+  color: #FF79B4;
+}
+
+.explore-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Moves options to the right */
+  margin-bottom: 1em;
+  gap: 2em;
+}
+
+.explore-header h2 {
+  margin: 0;
+  font-size: 2.2em; /* Larger heading */
+}
+
+#explore-options {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-end; /* Aligns options to the right */
+}
+
+#albums-container > button,
+#songs-container > button {
+  float: none;
+  position: static;
+  margin-bottom: 1em;
+}
+#albums-container,
+#songs-container {
+  position: relative;
+}
+
+/* Add this block for Your Music section spacing */
+#your-music-list .song-title {
+  margin-right: 2em;
+}
+
+#your-music-list .album-title {
+  margin-right: 2em;
+}
+
+#your-music-list .band-name {
+  margin-right: 2em;
+}
+
+/* Spacing for Personal Mixtape section */
+#user-playlist .song-title {
+  margin-right: 2em;
+}
+#user-playlist .album-title {
+  margin-right: 2em;
+}
+#user-playlist .band-name {
+  margin-right: 2em;
+}
+
+/* Header Styles */
+.header {
+  height: 374px;
+  width: 1376px;
+}
+
+.header .overlap-group {
+  height: 541px;
+  left: 33px;
+  position: relative;
+  top: -33px;
+  width: 1301px;
+}
+
+.header .blink-logo {
+  height: 541px;
+  left: 705px;
+  position: absolute;
+  top: 0;
+  width: 596px;
+}
+
+.header .blink-lore {
+  color: #ff79b4;
+  font-family: 'Permanent Marker', cursive, Helvetica;
+  font-size: 95px;
+  font-weight: 400;
+  height: 273px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 102.4px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 2px 2px 5px #000000;
+  top: 82px;
+  width: 804px;
+}
+
+.label {
+  height: 72px;
+  width: 648px;
+  margin-left: 0;      /* Align left */
+  margin-top: -20px;   /* Move higher */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.label .do-you-love-blink {
+  height: 72px;
+  left: 50px;
+  position: relative;
+  top: -40px; /* Adjusted to move higher */
+  width: 648px;
+}
+#about-container {
+  color: #000;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+#about-container h2 {
+  font-size: 2em;
+  color: #FF79B4;
+  border-bottom: 2px solid #FF79B4;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.band-photo {
+  width: 700px;
+  height: auto;
+  margin: 1em 0;
+  border-radius: 8px;
+  margin-top: 1em;
+  border: 2px solid #4AC5C5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.members-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 2em;
+  flex-wrap: wrap;
+}
+
+.member-card {
+  text-align: center;
+  max-width: 250px;
+  background-color: #222222;
+  padding: 1.5em;
+  border-radius: 8px;
+  border: 1px solid #FF79B4;
+}
+
+.member-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4AC5C5;
+}
+
+.member-card h4 {
+  font-size: 1.5em;
+  color: #FF79B4;
+  margin-top: 0.5em;
+}
+
+.member-card p {
+  color: #eeeeee;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+#about-container > button {
+  font-size: 1em;
+  padding: 0.4em 1em;
+  border-radius: 3px;
+  margin-bottom: 1em;
+}
+/* Add these styles to your existing style.css file */
+
+.mixtape-controls {
+  margin-bottom: 2em;
+}
+
+.mixtape-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.mixtape-tab-container {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.mixtape-tab {
+  background-color: #333;
+  color: #FF79B4;
+  border: 1px solid #FF79B4;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mixtape-tab.active {
+  background-color: #FF79B4;
+  color: #111;
+  font-weight: bold;
+}
+
+.mixtape-rename-input {
+  background-color: #F9EDE5;
+  color: #111;
+  border: 1px solid #FF79B4;
+  padding: 0.5em;
+  border-radius: 4px;
+  width: 8em;
+  font-family: 'Impact', sans-serif;
+}
+
+.delete-mixtape-btn {
+  background: none;
+  border: none;
+  color: #FF0000;
+  cursor: pointer;
+}
+
+.create-mixtape-container {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.mixtape-input {
+  flex-grow: 1;
+}
+
+.create-mixtape-btn {
+  background-color: #4AC5C5;
+  color: #111;
+  border: none;
+}
+
+.mixtape-content h4 {
+  font-size: 1.5em;
+  color: #FF79B4;
+  margin-bottom: 0.5em;
+}
+
+.mixtape-song-count {
+  font-size: 0.8em;
+  color: #999;
+}
+
+.mixtape-song-list {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  gap: 1em;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #FF79B4;
+}
+
+.list-header {
+  font-weight: bold;
+  background-color: #111;
+  color: #FF79B4;
+  padding: 0.5em 1em;
+  display: contents; /* Makes children flow into the grid */
+}
+
+.list-header span {
+  padding: 0.5em 1em;
+}
+
+.mixtape-item {
+  padding: 1em;
+  border-bottom: 1px dashed #666;
+  display: contents; /* Makes children flow into the grid */
+  transition: background-color 0.2s;
+}
+
+.mixtape-item span, .mixtape-item button {
+  padding: 0.5em 1em;
+}
+
+.mixtape-item:hover {
+  background-color: rgba(255, 121, 180, 0.1); /* Subtle pink hover effect */
+}
+
+.mixtape-item.is-dragging {
+  background-color: rgba(255, 121, 180, 0.3); /* More visible when dragging */
+  color: #111;
+}
+
+.mixtape-item.is-dragging span, .mixtape-item.is-dragging button {
+  color: #111;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #FF79B4;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+#playlist-status {
+  text-align: center;
+  color: #999999;
+  font-style: italic;
+  padding: 1em;
+  font-size: 1.2em;
+}
+/* Add these new styles to your existing style.css file */
+
+.mixtape-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.mixtape-header-title {
+  color: #FF79B4;
+  margin-bottom: 0.5em;
+}
+
+.mixtape-tabs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.mixtape-tab-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.mixtape-tab-button {
+  background-color: #222;
+  color: #4AC5C5;
+  border: 2px solid #4AC5C5;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 1.1em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.mixtape-tab-button:hover:not(.active) {
+  background-color: #4AC5C5;
+  color: #111;
+}
+
+.mixtape-tab-button.active {
+  background-color: #FF79B4;
+  color: #111;
+  border-color: #FF79B4;
+  font-weight: bold;
+}
+
+.mixtape-rename-input {
+  background-color: #F9EDE5;
+  color: #111;
+  border: 1px solid #FF79B4;
+  padding: 0.5em;
+  border-radius: 4px;
+  width: 8em;
+  font-family: 'Impact', sans-serif;
+  font-size: 1.1em;
+}
+
+.mixtape-delete-button {
+  background: none;
+  border: none;
+  color: #FF0000;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 1.2em;
+}
+
+.mixtape-create-form {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 1em;
+  width: 100%;
+  max-width: 400px;
+}
+
+.mixtape-name-input {
+  flex-grow: 1;
+}
+
+.mixtape-add-button {
+  background-color: #4AC5C5;
+  color: #111;
+  border: none;
+}
+
+.mixtape-content-wrapper {
+  margin-top: 2em;
+  padding: 2em;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  border: 3px solid #FF79B4;
+  color: #111;
+}
+
+.mixtape-content-title {
+  color: #FF79B4;
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
+}
+
+.mixtape-song-count {
+  font-size: 1.2em;
+  color: #999;
+}
+
+.mixtape-song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  padding: 0;
+  list-style: none;
+  margin-top: 2em;
+}
+
+.list-header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  font-weight: bold;
+  background-color: #4AC5C5;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.7em 1em;
+  font-size: 1.3em;
+}
+
+.list-header span {
+  text-align: left;
+}
+
+.list-header span:last-child {
+  text-align: right;
+}
+
+.mixtape-item {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  padding: 0.7em 1em;
+  color: #222;
+  font-size: 1.2em;
+}
+
+.mixtape-item.is-dragging {
+  background-color: #eee;
+  border-color: #4AC5C5;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.mixtape-item span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #FF79B4;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+/* Mixtape Section Styles */
+.mixtape-container {
+  margin: 3em auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.mixtape-header-title {
+  color: #4AC5C5;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.mixtape-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.mixtape-name-input {
+  padding: 0.4em 0.8em;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #4AC5C5;
+  margin-right: 0.5em;
+}
+
+.mixtape-add-button {
+  background: #FF79B4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4em 1em;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.mixtape-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+}
+
+.mixtape-card {
+  background: #fff;
+  border: 2px solid #4AC5C5;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(74, 197, 197, 0.08);
+  padding: 2em 1em;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.mixtape-card.active-mixtape {
+  border: 3px solid #FF79B4;
+}
+
+.mixtape-card-title {
+  color: #FF79B4;
+  margin-bottom: 0.8em;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.song-list-header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  font-weight: bold;
+  background: #4AC5C5;
+  color: #fff;
+  border-radius: 6px;
+  margin-bottom: 0.7em;
+  padding: 0.7em 0;
+  font-size: 1.3em;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.song-list-item {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  padding: 0.7em 0;
+  color: #222;
+  font-size: 1.2em;
+}
+
+.song-title-style {
+  color: #FF79B4;
+  font-weight: bold;
+}
+
+.album-title-style {
+  color: #4AC5C5;
+}
+
+.band-name-style {
+  color: #4AC5C5;
+}
+
+.empty-song-message {
+  color: #999;
+  font-style: italic;
+  padding: 1em;
+  font-size: 1.1em;
+}
+
+.mixtape-view-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background: #4AC5C5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3em 0.8em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.mixtape-view-button.selected-view {
+  background: #FF79B4;
+}
+
+.mixtape-delete-button {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background: #eee;
+  color: #FF79B4;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3em 0.8em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#member-list {
+  font-size: 1.3em;
+}

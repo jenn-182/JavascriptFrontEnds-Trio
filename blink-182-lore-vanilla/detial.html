@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail View - Basic Version</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/bunny1.png">
+</head>
+<body>
+    <!-- Simple Header -->
+    <header class="header">
+        <h1 class="title">Blink-182 Lore</h1>
+        <p class="subtitle">Basic Detail View</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="breadcrumb">
+        <span id="breadcrumb-text">Loading...</span>
+        <div>
+            <button onclick="goBack()" class="nav-btn">← Back</button>
+            <button onclick="goHome()" class="nav-btn">Home</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div id="loading">Loading...</div>
+        <div id="content" style="display: none;">
+            <!-- Content populated by JavaScript -->
+        </div>
+        <div id="error" class="error" style="display: none;"></div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blink-182 Lore Playlist Builder - Vue.js</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/bunny1.png">
+</head>
+<body>
+    <div id="app">
+        <!-- Header Component -->
+        <header class="header" @click="goHome">
+            <h1 class="title">Blink-182 Lore Playlist Builder</h1>
+            <p class="subtitle">Vue.js Version</p>
+        </header>
+
+        <div class="search-container" v-if="currentView === 'bands'">
+            <input 
+                type="text" 
+                v-model="searchTerm" 
+                placeholder="Search bands..." 
+                class="search-input">
+            <span class="search-results">{{ filteredBands.length }} bands found</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="breadcrumb">
+            <span class="breadcrumb-text">{{ breadcrumbText }}</span>
+            <div>
+                <button v-if="canGoBack" @click="goBack" class="nav-btn">Back</button>
+                <button @click="goHome" class="nav-btn">Home</button>
+            </div>
+        </nav>
+
+        <!-- Loading State  -->
+        <div v-if="loading" class="loading">
+            <div class="spinner"></div>
+            Loading {{ currentView }}...
+        </div>
+
+        <!-- Error State  -->
+        <div v-if="error" class="error">
+            {{ error }}
+            <button @click="retry" class="retry-btn">Try Again</button>
+        </div>
+
+        <!-- Main Content  -->
+        <main class="container" v-if="!loading && !error">
+            
+            <!-- Bands List View -->
+            <div v-if="currentView === 'bands'">
+                <div class="view-header">
+                    <h2>All Bands</h2>
+                    <p>{{ filteredBands.length }} bands from the Blink-182 universe!</p>
+                </div>
+                
+                <div class="item-list">
+                    <div 
+                        v-for="band in filteredBands" 
+                        :key="band.id"
+                        class="item item-hover"
+                        @click="showAlbums(band)">
+                        <div class="item-name">{{ band.name }}</div>
+                        <div class="item-year">Started: {{ band.startYear }}</div>
+                        <div class="item-details">Click to explore albums →</div>
+                    </div>
+                    
+                    <div v-if="filteredBands.length === 0" class="empty">
+                        No bands match your search
+                    </div>
+                </div>
+            </div>
+
+            <!-- Albums List View -->
+            <div v-if="currentView === 'albums'">
+                <div class="view-header">
+                    <h2>{{ currentBand.name }} Albums</h2>
+                    <p>{{ albums.length }} albums available</p>
+                </div>
+                
+                <div class="item-list">
+                    <div 
+                        v-for="album in albums" 
+                        :key="album.id"
+                        class="item item-hover"
+                        @click="showSongs(album)">
+                        <div class="item-name">{{ album.title }}</div>
+                        <div class="item-year">Released: {{ album.releaseYear }}</div>
+                        <div class="item-details">Click to view songs →</div>
+                    </div>
+                    
+                    <div v-if="albums.length === 0" class="empty">
+                        No albums found for this band
+                    </div>
+                </div>
+            </div>
+
+            <!-- Songs List View -->
+            <div v-if="currentView === 'songs'">
+                <div class="view-header">
+                    <h2>{{ currentAlbum.title }} Songs</h2>
+                    <p>{{ songs.length }} tracks</p>
+                </div>
+                
+                <div class="item-list">
+                    <div 
+                        v-for="song in songs" 
+                        :key="song.id"
+                        class="item">
+                        <div class="item-name">{{ song.title }}</div>
+                        <div class="item-details">
+                            Track {{ song.trackNumber }} • {{ formatDuration(song.durationInSeconds) }}
+                        </div>
+                        <!-- Add to Playlist Feature  -->
+                        <button @click="addToPlaylist(song)" class="add-btn">
+                            {{ isInPlaylist(song) ? '✓ Added' : '+ Add to Playlist' }}
+                        </button>
+                    </div>
+                    
+                    <div v-if="songs.length === 0" class="empty">
+                        No songs found for this album
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simple Playlist  -->
+            <div v-if="playlist.length > 0" class="playlist-section">
+                <h3>Your Mixtape ({{ playlist.length }} songs)</h3>
+                <div class="playlist">
+                    <div 
+                        v-for="(song, index) in playlist" 
+                        :key="`playlist-${song.id}`"
+                        class="playlist-item">
+                        <span>{{ song.title }} - {{ song.album || 'Unknown Album' }}</span>
+                        <button @click="removeFromPlaylist(index)" class="remove-btn">×</button>
+                    </div>
+                </div>
+                <button @click="clearPlaylist" class="clear-btn">Clear Playlist</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
