@@ -1,37 +1,43 @@
 # JavaScript Front-End Trio
 
-## React Page:
+<div class="react-section">
+  <h3>React Page</h3>
+  
+  <div class="image-row">
+    <img src="ReactAboutBand.png" alt="React About Band Section" width="400">
+    <img src="ReactAddMusic.png" alt="React Add Music Feature" width="400">
+  </div>
 
-<div align="center">
-  <img src="Screenshot_2025-08-28_at_11.14.24_PM.png" alt="React App Main Interface" width="400" style="margin: 5px;">
-  <img src="Screenshot_2025-08-28_at_11.14.38_PM.png" alt="React App Secondary View" width="400" style="margin: 5px;">
+  <div class="image-row">
+    <img src="ReactBandsList.png" alt="React Bands List" width="250">
+    <img src="ReactHeader.png" alt="React Header" width="250">
+    <img src="ReactMixtape.png" alt="React Mixtape Feature" width="250">
+  </div>
+
+  <div class="image-row">
+    <img src="ReactPlaylist.png" alt="React Playlist" width="400">
+    <img src="ReactSongList.png" alt="React Song List" width="400">
+  </div>
 </div>
 
-<div align="center">
-  <img src="Screenshot_2025-08-29_at_12.23.22_PM.png" alt="React Feature 1" width="250" style="margin: 5px;">
-  <img src="Screenshot_2025-08-29_at_12.23.29_PM.png" alt="React Feature 2" width="250" style="margin: 5px;">
-  <img src="Screenshot_2025-08-29_at_12.24.03_PM.png" alt="React Feature 3" width="250" style="margin: 5px;">
+<div class="vue-section">
+  <h3>Vue.js</h3>
+  
+  <div class="image-row">
+    <img src="VueAlbumList.png" alt="Vue.js Album List" width="450">
+    <img src="VuePlaylist.png" alt="Vue.js Playlist" width="450">
+  </div>
 </div>
 
-<div align="center">
-  <img src="Screenshot_2025-08-29_at_12.24.18_PM.png" alt="React Feature 4" width="400" style="margin: 5px;">
-  <img src="Screenshot_2025-08-29_at_12.24.41_PM.png" alt="React Feature 5" width="400" style="margin: 5px;">
-</div>
+<div class="vanilla-section">
+  <h3>Vanilla JS</h3>
+  
+  <div class="image-row">
+    <img src="VanillaBandsList.png" alt="Vanilla JS Bands List" width="400">
+    <img src="VanillaList.png" alt="Vanilla JS List View" width="400">
+  </div>
 
-## Vue.js:
-
-<div align="center">
-  <img src="Screenshot_2025-08-29_at_12.16.12_PM.png" alt="Vue.js App Interface" width="400" style="margin: 5px;">
-  <img src="Screenshot_2025-08-29_at_12.16.23_PM.png" alt="Vue.js Secondary View" width="400" style="margin: 5px;">
-</div>
-
-<div align="center">
-  <img src="Screenshot_2025-08-29_at_12.15.59_PM.png" alt="Vue.js Feature View" width="500" style="margin: 5px;">
-</div>
-
-## Vanilla JS:
-
-<div align="center">
-  <img src="Screenshot_2025-08-29_at_12.01.11_PM.png" alt="Vanilla JS App Interface" width="450" style="margin: 5px;">
-  <img src="Screenshot_2025-08-29_at_12.01.26_PM.png" alt="Vanilla JS Secondary View" width="450" style="margin: 5px;">
+  <div class="image-row">
+    <img src="VanillaSongList.png" alt="Vanilla JS Song List" width="500">
+  </div>
 </div>
